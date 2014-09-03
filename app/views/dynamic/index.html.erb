@@ -1,0 +1,16 @@
+<div ng-app="queueApp">
+	<h1>Dynamic#index</h1>
+
+	<div ng-controller="queueCtrl">
+
+	<ul>
+		<li ng-repeat="post in posts">
+			{{ post.caption }}
+			{{ post.picture }}
+			{{ post.location }}
+			{{ post.release_date }}
+		</li>
+	</ul>
+
+	</div>
+</div>
