@@ -13,62 +13,134 @@
 					<a ng-click="destroyPost( post )" class="button tiny round alert">
 						X
 					</a>
+					<a ng-click="editPost( post )" class="button tiny round secondary">
+						Edit
+					</a>
+
 
 				</li>
 			</ul>
 		</div>
 
 		<div class="small-6 columns">
-			<h3>Queue up a Post!</h3>
-			<form ng-submit="addPost()" name="postForm">
-				<div class="row">
-					<div class="large-6 columns">
-						<div class="row collapse prefix-radius">
-							<div class="small-3 columns">
-								<span class="prefix">Caption</span>
+
+			<div ng-hide="showEdit">
+				<h3>Queue up a Post!</h3>
+				<form ng-submit="addPost()" name="postForm">
+					<div class="row">
+						<div class="large-6 columns">
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Caption</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" placeholder="Value" 
+										ng-model="newPost.caption" required>
+								</div>
 							</div>
-							<div class="small-9 columns">
-								<input type="text" placeholder="Value" 
-									ng-model="newPost.caption" required>
+						</div>
+						<div class="large-6 columns">
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Picture</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" placeholder="Value"
+										ng-model="newPost.picture">
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="large-6 columns">
-						<div class="row collapse prefix-radius">
-							<div class="small-3 columns">
-								<span class="prefix">Picture</span>
+					<div class="row">
+						<div class="large-6 columns">
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Location</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" placeholder="Value" ng-model="newPost.location">
+								</div>
 							</div>
-							<div class="small-9 columns">
-								<input type="text" placeholder="Value"
-									ng-model="newPost.picture">
+						</div>
+						<div class="large-6 columns">
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Release Date</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="date" placeholder="Value" ng-model="newPost.release_date">
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="large-6 columns">
-						<div class="row collapse prefix-radius">
-							<div class="small-3 columns">
-								<span class="prefix">Location</span>
+					<input type="submit" value="Add New Post!!" class="button radius">
+				</form>
+			</div>
+
+			<div ng-show="showEdit">
+				<h3>Edit your post!!</h3>
+				<form ng-submit="updatePost( post )" name="postForm">
+					<div class="row">
+						<div class="large-6 columns">
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Caption</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" placeholder="Value" 
+										ng-model="post.caption" required>
+								</div>
 							</div>
-							<div class="small-9 columns">
-								<input type="text" placeholder="Value" ng-model="newPost.location">
+						</div>
+						<div class="large-6 columns">
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Picture</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" placeholder="Value"
+										ng-model="post.picture">
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="large-6 columns">
-						<div class="row collapse prefix-radius">
-							<div class="small-3 columns">
-								<span class="prefix">Release Date</span>
+					<div class="row">
+						<div class="large-6 columns">
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Location</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="text" placeholder="Value"
+										ng-model="post.location">
+								</div>
 							</div>
-							<div class="small-9 columns">
-								<input type="date" placeholder="Value" ng-model="newPost.release_date">
+						</div>
+						<div class="large-6 columns">
+							<div class="row collapse prefix-radius">
+								<div class="small-3 columns">
+									<span class="prefix">Release Date</span>
+								</div>
+								<div class="small-9 columns">
+									<input type="date" placeholder="Value"
+										ng-model="post.release_date">
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<input type="submit" value="Add New Post!!" class="button radius">
-			</form>
+					<input type="submit" value="Update!" class="button radius">
+				</form>
+			</div>
+
 		</div>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+

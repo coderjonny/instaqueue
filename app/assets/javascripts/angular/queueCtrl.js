@@ -18,10 +18,21 @@ queueApp.controller('queueCtrl', [
 		};
 
 		$scope.destroyPost = function( post ){
-			console.log(post);
 			post.$delete(function(){
 				var position = $scope.posts.indexOf(post);
 				$scope.posts.splice(position, 1);
+			});
+		};
+
+		$scope.editPost = function( post ){
+			$scope.showEdit = true;
+			$scope.post = post;
+		};
+
+		$scope.updatePost = function( post ){
+			post.$update(function(){
+				console.log('success!!');
+				$scope.showEdit = false;
 			});
 		};
 
